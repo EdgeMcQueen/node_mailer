@@ -21,15 +21,12 @@ app.post('/feedbackForm', (req, res) => {
     // проверка заполнения обязательных полей
     if(!req.body.name || !req.body.phone) return res.sendStatus(400)
     const message = {
-        to: req.body.email, // Кому (для нескольких адресатов используйте запятую)
-        subject: "Hello ✔", // Тема письма
-        text: `
-        Новая заявка!
-        Имя: ${req.body.name}
-        Телефон: ${req.body.phone}
-
-        `, // Содержимое письма
-        html: "<b>Хорошего дня!</b>", // html код письма
+        to: smtp.to, // Кому (для нескольких адресатов используйте запятую)
+        subject: "Заявка", // Тема письма
+        text: '', // Содержимое письма
+        html: `<h3>Новая заявка!</h3>
+        <b>Имя:</b> ${req.body.name} </br>
+        <b>Телефон:</b> ${req.body.phone}` // html код письма
       }
     mailer(message)
     order = req.body

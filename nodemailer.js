@@ -4,12 +4,14 @@ const smtp = require('./config');
 
 // настройки smtp транспортера
 let transporter = nodemailer.createTransport({
-    host: smtp.host,
-    port: smtp.port,
-    // secure: false, // порт безопасного соединения, true для 465, false для остальных
+    service: 'Gmail',
+    // host: smtp.host,
+    // port: smtp.port,
+    // secure: true, // протокол шифрования соединения, true для 465, false для остальных
     auth: {
+        type: 'OAuth2',
         user: smtp.user, // логин от почтового сервиса
-        pass: smtp.pass, // пароль от почтового сервиса
+        accessToken: smtp.token
     }
 },
     {
