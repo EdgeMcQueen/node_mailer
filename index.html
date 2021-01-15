@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        textarea {
+            height: 50px;
+            display: block;
+            margin: 10px auto 0;
+        }
+        form > * {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="contactForm" method="POST" action="http://localhost:3001/feedbackForm">
+        <div class="inp">
+            Ваше имя:
+            <input type="name" name="name" value="" placeholder="Введите имя" required/></div>
+        <div class="inp">
+            Мобильный телефон:
+            <input type="tel" placeholder="+7(___)___-__-__" minlength="11" maxlength="16" name="phone" required/>
+        </div>
+        <div>
+            Кол-во справок (взр / детск), метро доставки:
+            <textarea name="message" cols="30" rows="40"></textarea>
+        </div>
+        <div class="wrapper">
+            <button class="button" type="submit">Отправить заказ</button>
+        </div>
+        <div class="wpcf7-response-output"></div>
+    </form>
+
+</body>
+
+</html>
